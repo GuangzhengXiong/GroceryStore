@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UTS SHOP</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="nav-logo" onclick="resetPage()">
+    <img src="img/logo.jpg" alt="UTS SHOP Logo" />
+  </div>
+
+  <nav class="nav-categories">
+    <div class="nav-item" data-main="Frozen">Frozen
+      <div class="dropdown">
+        <div data-category="Dumplings">Dumplings</div>
+        <div data-category="Snacks">Snacks</div>
+      </div>
+    </div>
+    <div class="nav-item" data-main="Fresh">Fresh
+      <div class="dropdown">
+        <div data-category="Vegetables">Vegetables</div>
+        <div data-category="Fruits">Fruits</div>
+      </div>
+    </div>
+    <div class="nav-item" data-main="Beverages">Beverages
+      <div class="dropdown">
+        <div data-category="Juice">Juice</div>
+        <div data-category="Water">Water</div>
+      </div>
+    </div>
+    <div class="nav-item" data-main="Home">Home
+      <div class="dropdown">
+        <div data-category="Cleaning">Cleaning</div>
+        <div data-category="Kitchen">Kitchen</div>
+      </div>
+    </div>
+    <div class="nav-item" data-main="Pet Food">Pet Food
+      <div class="dropdown">
+        <div data-category="Dog Food">Dog Food</div>
+        <div data-category="Cat Food">Cat Food</div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-search">
+    <input type="text" id="search-box" placeholder="Search for items..." />
+    <button id="search-btn">Search</button>
+  </div>
+
+  <div class="nav-cart">
+    <a href="cart.html" class="cart-icon">🛒</a>
+  </div>
+</header>
+
+<div class="initial-message" id="initial-message">
+  <h1>Welcome to UTS SHOP</h1>
+  <p>Please select a category or use the search bar above to find your items.</p>
+</div>
+
+<main>
+  <div class="product-grid" id="product-list"></div>
+</main>
+
+</body>
+</html>
