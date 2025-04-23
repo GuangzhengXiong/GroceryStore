@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/cart.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="nav-logo" onclick="window.location.href='index.html'">
+    <img src="img/logo.jpg" alt="UTS SHOP Logo" />
+  </div>
+
+  <div class="nav-cart">
+    <a href="#" class="cart-icon" onclick="toggleCart()">🛒</a>
+  </div>
+</header>
+
+<main>
+  <div class="cart-container">
+    <h1>Your Shopping Cart</h1>
+    <div id="cart-items"></div>
+    <p id="empty-message">Your cart is empty.</p>
+    <hr />
+    <div class="cart-summary">
+      <div class="total-price"><strong>Total:</strong> <span id="cart-total">$0.00</span></div>
+      <div class="cart-buttons">
+        <button id="place-order">Place Order</button>
+        <button id="clear-cart">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

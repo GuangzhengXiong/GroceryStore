@@ -1,50 +1,55 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "UTSShop");
-$conn->set_charset("utf8");
+header('Content-Type: application/json');
 
-$query = $_GET['query'] ?? '';
-$category = $_GET['category'] ?? '';
+$mysqli = new mysqli('localhost', 'root', '', 'UTSShop');
+if ($mysqli->connect_error) {
+  die(json_encode([]));
+}
+
+$query = '';
+if (isset($_GET['category'])) {
+  $category = $mysqli->real_escape_string($_GET['category']);
+  $query = "SELECT * FROM products WHERE main_category = '$category' OR sub_category = '$category'";
+} elseif (isset($_GET['query'])) {
+  $keyword = $mysqli->real_escape_string($_GET['query']);
+  $query = "SELECT * FROM products WHERE 
+            name LIKE '%$keyword%' OR 
+            description LIKE '%$keyword%' OR 
+            main_category LIKE '%$keyword%' OR 
+            sub_category LIKE '%$keyword%'";
+} else {
+  echo json_encode([]);
+  exit;
+}
+
+$result = $mysqli->query($query);
 $products = [];
 
-if ($query !== '') {
-    $q = $conn->real_escape_string($query);
-    $sql = "SELECT * FROM products 
-            WHERE name LIKE '%$q%'
-               OR description LIKE '%$q%'
-               OR main_category LIKE '%$q%'
-               OR sub_category LIKE '%$q%'
-            LIMIT 30";
-} elseif ($category !== '') {
-    $c = $conn->real_escape_string($category);
-    $sql = "SELECT * FROM products 
-            WHERE main_category = '$c' 
-               OR sub_category = '$c'
-            LIMIT 30";
-} else {
-    echo json_encode([]);
-    exit;
-}
-
-$result = $conn->query($sql);
-
 while ($row = $result->fetch_assoc()) {
-    $productId = $row['id'];
-    $unitSql = "SELECT unit, price, stock FROM product_units WHERE product_id = $productId";
-    $unitResult = $conn->query($unitSql);
-    $units = [];
-    while ($u = $unitResult->fetch_assoc()) {
-        $units[] = $u;
-    }
+  $productId = $row['id'];
+  $units = [];
 
-    $products[] = [
-        'id' => $productId,
-        'name' => $row['name'],
-        'image' => $row['image'],
-        'description' => $row['description'],
-        'units' => $units
+  $unitResult = $mysqli->query("SELECT unit_name, unit_price, stock FROM product_units WHERE product_id = $productId");
+
+  while ($unitRow = $unitResult->fetch_assoc()) {
+    $units[] = [
+      'unit' => $unitRow['unit_name'],
+      'price' => $unitRow['unit_price'],
+      'stock' => $unitRow['stock']
     ];
+  }
+
+  $products[] = [
+    'id' => $row['id'],
+    'name' => $row['name'],
+    'main_category' => $row['main_category'],
+    'sub_category' => $row['sub_category'],
+    'image' => $row['image'],
+    'description' => $row['description'],
+    'units' => $units
+  ];
 }
 
-header('Content-Type: application/json');
 echo json_encode($products);
+$mysqli->close();
 ?>
