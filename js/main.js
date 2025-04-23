@@ -155,7 +155,15 @@ function renderProducts(data) {
     const card = $(this).closest('.product-card');
     card.find('.price').text(`$${parseFloat(unit.price).toFixed(2)}`);
     card.find('.stock').text(unit.stock > 0 ? 'In Stock' : 'Out of Stock');
-    card.find('.add-to-cart').prop('disabled', unit.stock <= 0);
+
+    const addButton = card.find('.add-to-cart');
+    if (unit.stock <= 0) {
+      addButton.prop('disabled', true);
+      addButton.addClass('disabled');
+    } else {
+      addButton.prop('disabled', false);
+      addButton.removeClass('disabled');
+    }
   });
 
   $('.add-to-cart').on('click', function () {
@@ -185,4 +193,6 @@ function renderProducts(data) {
 
     addToCart(cartItem);
   });
+
+  $('.unit-select').trigger('change');
 }

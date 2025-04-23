@@ -376,3 +376,16 @@ header {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.add-to-cart:disabled,
+.add-to-cart.disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.add-to-cart:disabled:hover,
+.add-to-cart.disabled:hover {
+  background-color: #ccc;
+  color: #666;
+}
