@@ -1,0 +1,73 @@
+.delivery-form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  #delivery-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #delivery-form label {
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+  
+  #delivery-form input,
+  #delivery-form select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+  
+  .required {
+    color: red;
+    margin-right: 4px;
+  }
+  
+  .feedback {
+    font-size: 13px;
+    display: inline-block;
+    margin-left: 8px;
+  }
+  
+  .feedback.valid {
+    color: green;
+  }
+  
+  .feedback.invalid {
+    color: red;
+  }
+  
+  #submit-order {
+    padding: 10px 20px;
+    background-color: #f28c28;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+  
+  #submit-order:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+  }
+  
+  .error-msg.valid {
+    color: green;
+  }
+  .error-msg.invalid {
+    color: red;
+  }
+  

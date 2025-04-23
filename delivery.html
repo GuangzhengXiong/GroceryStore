@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Delivery Information</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/delivery.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/delivery.js" defer></script>
+</head>
+<body>
+
+<header>
+    <div class="nav-logo" onclick="goHomeReset()">
+      <img src="img/logo.jpg" alt="UTS SHOP Logo" />
+    </div>
+</header>
+
+<main>
+  <div class="delivery-form-container">
+    <form id="delivery-form">
+      <label>
+        <span class="required">*</span>Name:
+        <input type="text" id="name" />
+        <span id="name-feedback" class="feedback"></span>
+      </label>
+
+      <label>
+        <span class="required">*</span>Email:
+        <input type="email" id="email" />
+        <span id="email-feedback" class="feedback"></span>
+      </label>
+
+      <label>
+        <span class="required">*</span>Phone:
+        <input type="text" id="phone" />
+        <span id="phone-feedback" class="feedback"></span>
+      </label>
+
+      <label>
+        <span class="required">*</span>Address:
+        <input type="text" id="address" />
+        <span id="address-feedback" class="feedback"></span>
+      </label>
+
+      <label>
+        <span class="required">*</span>State:
+        <select id="state">
+          <option value="">-- Select State --</option>
+          <option value="NSW">NSW</option>
+          <option value="VIC">VIC</option>
+          <option value="QLD">QLD</option>
+          <option value="WA">WA</option>
+          <option value="SA">SA</option>
+          <option value="TAS">TAS</option>
+          <option value="ACT">ACT</option>
+          <option value="NT">NT</option>
+          <option value="Others">Others</option>
+        </select>
+        <span id="state-feedback" class="feedback"></span>
+      </label>
+
+      <button type="button" id="submit-order" disabled>Place Order</button>
+    </form>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,5 +1,8 @@
 $(document).ready(function () {
     loadCart();
+    $('#place-order').click(function () {
+      window.location.href = 'delivery.html';
+    });
   });
   
   function loadCart() {
@@ -135,4 +138,10 @@ $(document).ready(function () {
   function toggleCart() {
     window.location.href = 'index.html';
   }
-    
+
+  function goHomeReset() {
+    localStorage.removeItem('lastQuery');
+    localStorage.removeItem('queryType');
+    window.location.href = 'index.html';
+  }
+  

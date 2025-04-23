@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Confirmation</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/confirmation.css">
+  <script src="js/confirmation.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="nav-logo" onclick="goHomeReset()">
+      <img src="img/logo.jpg" alt="UTS SHOP Logo" />
+    </div>
+  </header>
+
+  <main class="confirmation-container">
+    <h1>Thank you for shopping with us!</h1>
+    <p id="email-message"></p>
+    <p id="order-message"></p>
+    <p id="delivery-message"></p>
+
+    <h2>Order Summary</h2>
+    <ul id="order-summary"></ul>
+    <p><strong>Total:</strong> <span id="order-total">$0.00</span></p>
+  </main>
+</body>
+</html>
