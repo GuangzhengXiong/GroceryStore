@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-$mysqli = new mysqli('localhost', 'root', '', 'UTSShop');
+$mysqli = new mysqli('localhost', 'root', '', 'UTSShop', 3307);
 if ($mysqli->connect_error) {
   die(json_encode([]));
 }
